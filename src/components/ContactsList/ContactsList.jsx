@@ -6,13 +6,14 @@ import css from './ContactsList.module.css';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
-import { selectContacts } from 'redux/contacts/selectors';
+import { selectContacts, selectIsLoading } from 'redux/contacts/selectors';
 import { selectFindFilter } from 'redux/filter/selectors';
 import NoContactsInfo from 'components/NoContactsInfo/NoContactsInfo';
 
 const ContactsList = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
+  const isLoading = useSelector(selectIsLoading);
   const filter = useSelector(selectFindFilter);
 
   const showFilteredContacts = (() => {
@@ -27,7 +28,7 @@ const ContactsList = () => {
   return (
     <>
       <ul className={css.contactList}>
-        {showFilteredContacts.length === 0 && <NoContactsInfo />}
+        {showFilteredContacts.length === 0 && !isLoading && <NoContactsInfo />}
         {showFilteredContacts.map(contact => (
           <li className={css.contactItem} key={contact.id}>
             <p className={css.contactInfoWrapper}>
