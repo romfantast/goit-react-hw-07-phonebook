@@ -1,14 +1,14 @@
 import React from 'react';
 import { Notify } from 'notiflix';
-import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contactSlice';
 import ContactsAppCaption from 'components/ContactsAppCaption/ContactsAppCaption';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectContacts } from 'redux/contacts/selectors';
 import css from './ContactsForm.module.css';
-import { getContacts } from 'redux/selectors';
+import { addContact } from 'redux/contacts/operations';
 
 const ContactsForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   const handleContactData = e => {
     e.preventDefault();

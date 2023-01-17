@@ -2,7 +2,7 @@ import React from 'react';
 import ContactsAppCaption from '../ContactsAppCaption/ContactsAppCaption';
 import css from './InputFilterContact.module.css';
 
-import { setFindFilter } from 'redux/filterSlice';
+import { setFindFilter } from 'redux/filter/filterSlice';
 import { useDispatch } from 'react-redux';
 
 const InputFilterContact = () => {

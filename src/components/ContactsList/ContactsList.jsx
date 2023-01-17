@@ -2,18 +2,18 @@ import React from 'react';
 import { BiUserCircle } from 'react-icons/bi';
 import { BsXCircle } from 'react-icons/bs';
 import DeleteButton from 'components/DeleteButton/DeleteButton';
-import NoContactsInfo from 'components/NoContactsInfo/NoContactsInfo';
 import css from './ContactsList.module.css';
 
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { getContacts, getFindFilter } from 'redux/selectors';
-import { deleteContact } from 'redux/contactSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteContact } from 'redux/contacts/operations';
+import { selectContacts } from 'redux/contacts/selectors';
+import { selectFindFilter } from 'redux/filter/selectors';
+import NoContactsInfo from 'components/NoContactsInfo/NoContactsInfo';
 
 const ContactsList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
-  const filter = useSelector(getFindFilter);
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFindFilter);
 
   const showFilteredContacts = (() => {
     const filterStr = filter.toLowerCase();
@@ -23,6 +23,7 @@ const ContactsList = () => {
   })();
 
   const handleDelete = id => dispatch(deleteContact(id));
+
   return (
     <>
       <ul className={css.contactList}>
