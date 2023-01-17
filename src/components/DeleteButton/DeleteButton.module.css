@@ -1,0 +1,17 @@
+.buttonOnDelete {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  padding: 3px 15px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  height: 30px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  background-color: rgb(48, 169, 240);
+}
+.buttonOnDelete:hover {
+  background-color: rgb(36, 153, 221);
+}

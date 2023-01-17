@@ -1,0 +1,28 @@
+.contactList {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  list-style: none;
+}
+.contactItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 5px;
+}
+.contactInfoWrapper {
+  display: flex;
+  column-gap: 5px;
+  align-items: center;
+}
+.contactIcon {
+  fill: rgb(119, 20, 200);
+}
+
+.contactName {
+  font-size: 20px;
+}
+.contactPhone {
+  font-size: 16px;
+}
